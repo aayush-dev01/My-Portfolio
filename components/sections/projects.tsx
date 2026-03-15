@@ -9,7 +9,7 @@ const projects = [
   {
     title: "Clario EdTech",
     description: "A comprehensive educational technology platform designed to enhance learning experiences with interactive courses, progress tracking, and personalized learning paths for students and educators.",
-    image: "/projects/clario.jpg",
+    image: "/clario-edtech.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Education"],
     github: "https://github.com/aayush-dev01/Clario-Edtech",
     live: "https://clario-edtech.vercel.app/",
@@ -18,7 +18,7 @@ const projects = [
   {
     title: "MindBridge",
     description: "A mental health support platform providing accessible resources, self-assessment tools, and connection to mental wellness services. Designed with empathy and user privacy in mind.",
-    image: "/projects/mindbridge.jpg",
+    image: "/mindbridge.png",
     tags: ["React", "Node.js", "Healthcare", "Wellness"],
     github: "https://github.com/aayush-dev01/MindBridge-hackathon",
     live: "https://mind-bridge-health.vercel.app/",
@@ -64,11 +64,18 @@ export function ProjectsSection() {
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* Image */}
-                <div className={`relative aspect-video rounded-2xl overflow-hidden bg-muted/20 ${index % 2 === 1 ? "md:order-2" : ""}`}>
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-6xl font-bold text-foreground/10">{String(index + 1).padStart(2, "0")}</span>
-                  </div>
+                <div
+                  className={`relative aspect-video rounded-2xl overflow-hidden bg-muted/20 ${index % 2 === 1 ? "md:order-2" : ""}`}
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 480px, 100vw"
+                    priority={index === 0}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 mix-blend-soft-light" />
                 </div>
 
                 {/* Content */}
